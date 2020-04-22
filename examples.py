@@ -95,5 +95,24 @@ def findHighFrequencyWords (text_string, k):
     	ls_outputText += word[0]
     return ' '.join(ls_outputText)
 
+#CS question a string return True if balanced parethesis
+def validParenthesis(string):
+    on = 0
+    off = 0
+    for char in string:
+        if char == '[':
+            on += 1
+        elif char == ']':
+            off += 1
+            #if closing brackets appear before open
+            if off > on:  
+                return False
+    if on != off:
+        return False
+    return True
+
 if __name__ == '__main__':
     print(findHighFrequencyWords("a b c d e f e g a g b b",2) )
+    print(validParenthesis("[asd]va[a]ad[v[vv] [[][]]]"))
+
+
