@@ -111,8 +111,21 @@ def validParenthesis(string):
         return False
     return True
 
+def reverseString(string):
+    stack = []
+    revWord = ""
+    #for i in range(len(string)-1,-1,-1):
+    #    stack.append(string[i])
+    for char in string:
+        stack.append(char)
+    #print (stack)
+    while stack:
+        char = stack.pop(-1)
+        revWord += char
+    return revWord 
+
 if __name__ == '__main__':
     print(findHighFrequencyWords("a b c d e f e g a g b b",2) )
-    print(validParenthesis("[asd]va[a]ad[v[vv] [[][]]]"))
+    print(reverseString("notebook"))
 
 
