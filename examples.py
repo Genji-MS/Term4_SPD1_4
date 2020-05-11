@@ -124,8 +124,45 @@ def reverseString(string):
         revWord += char
     return revWord 
 
+#find the intersection of two lists [CS1.3]
+def intersect_lists(ls1, ls2):
+    intersection = []
+    dict = {}
+    for item in ls1:
+        dict[item] = 1
+    for item in ls2:
+        if item in dict:
+            intersection.append(item)
+    return intersection
+
+#people you visited given only tuples of from who to who
+def route_from_who_to_who(tuplelist):
+    # input = [(A, B), (B, C)]
+    # keys, values
+    # FROM, TO
+    dict = {}
+    start = ""
+    output_list= []
+    for tup in tuplelist:
+        FROM = tup[0]
+        TO = tup[1]
+        dict[FROM] = TO
+
+    for key in dict.keys():
+        if key not in dict.values():
+            start = key
+    
+    current_item = start
+    output_list.append(current_item)
+    for i in range(len(dict.keys())-1):
+        next_item = dict[current_item]
+        output_list.append(next_item)
+        current_item = next_item
+
+    return output_list
+    
+
 if __name__ == '__main__':
     print(findHighFrequencyWords("a b c d e f e g a g b b",2) )
     print(reverseString("notebook"))
-
-
+    print(route_from_who_to_who( [('A','B'),('B','C'),('C','D')] ))

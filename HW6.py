@@ -9,6 +9,7 @@ class Solution(object):
         """
         
         '''
+        WALKTHROUGH CODE BELOW
         This solution assumed we calculated the median of each list, INCORRECT
         '''
         
